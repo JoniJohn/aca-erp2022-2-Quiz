@@ -1,15 +1,23 @@
 import React from 'react';
-import logo from './assets/aca_logo.png';
+// import logo from './assets/aca_logo.png';
 import './style/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Space from './custom_components/Space';
+import Button from 'react-bootstrap/Button';
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} style={{maxWidth:150, maxHeight:150}} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <h1>Welcome to ACA Quiz.</h1>
+        <Space></Space>
+        <div className='border rounded p-3'>
+          <h5>Please click start to begin the quiz.</h5>
+          <Space></Space>
+          <Button className="bg-info">Start</Button>
+        </div>
+        <Space></Space>
         <a
           className="App-link"
           href="https://africacode.org"
