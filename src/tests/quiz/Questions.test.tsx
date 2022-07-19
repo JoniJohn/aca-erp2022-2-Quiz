@@ -14,7 +14,7 @@ describe('Answering Questions', () => {
     const d = new Answer("D", "0");
 
     // question with answers
-    const multiChoiceQuestion = new MultiChoiceQuestion(text, a, [a, b, c, d]);
+    const multiChoiceQuestion = new MultiChoiceQuestion(0, text, "", a, [a, b, c, d]);
     
     it('should return true if correct answer is given', () => {
         // arrange
@@ -25,7 +25,7 @@ describe('Answering Questions', () => {
         expect(res).toBe(true);
     });
 
-    it('should return false if wrong is given', () => {
+    it('should return false if wrong answer is given', () => {
         // arrange
         const userAnswer = new Answer("B", "11");
         // act
