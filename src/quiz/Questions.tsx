@@ -7,6 +7,7 @@ class Questions {
 
         const correctAnswer = question.correctAnswer;
 
+        // TODO: Improve the way we are checking for equality
         res = correctAnswer.letter === userAnswer.letter && correctAnswer.text === userAnswer.text;
 
         return res;
