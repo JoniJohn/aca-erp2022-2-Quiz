@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './assets/aca_logo.png';
 import './style/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
