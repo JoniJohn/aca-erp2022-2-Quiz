@@ -1,7 +1,7 @@
 import Answer from './Answer';
 
 
-class Question {
+class MultiChoiceQuestion {
     question: string;
     correctAnswer: Answer;
     answers: Answer[];
@@ -13,4 +13,4 @@ class Question {
     }
 }
 
-export default Question;
+export default MultiChoiceQuestion;
