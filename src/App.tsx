@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          I Love ACA
+          Lesley Loves ACA
         </a>
       </header>
     </div>
