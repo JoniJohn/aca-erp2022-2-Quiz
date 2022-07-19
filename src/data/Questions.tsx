@@ -42,7 +42,7 @@ const questions: MultiChoiceQuestion[] =  [
     new MultiChoiceQuestion(
         4,
         "What will be alerted?",
-        "var a = null;\n\nvar b={};\nvar c = a || b;\nalert(c);",
+        "var a = null;\nvar b = {};\nvar c = a || b;\nalert(c);",
         new Answer("D", "[object Object]"),
         [
             new Answer("A", "true"),
@@ -90,7 +90,7 @@ const questions: MultiChoiceQuestion[] =  [
     new MultiChoiceQuestion(
         8,
         "What is the output of this code?",
-        "var a = 0;\n a++; alert",
+        "var a = 0;\n a++;\n alert(--a + a)",
         new Answer("C", "0"),
         [
             new Answer("A", "2"),

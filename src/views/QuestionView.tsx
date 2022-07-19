@@ -19,54 +19,51 @@ function QuestionView() {
             <Space></Space>
             <h2>Please select the correct answer</h2>
             
-            <div className="border border-info rounded p-3">
-                <form action="#" >
+            <div className="border border-info rounded-3 p-3">
+                <form action="/" >
                     <h4 className="text-info">{ id }. { multiChoiceQuestion!.question }</h4>
                     {multiChoiceQuestion!.metaData.length !== 0 &&
-                    <div className="pb-3 pt-2">
-                        <code className="p-2 rounded">
-                            { multiChoiceQuestion!.metaData }
-                        </code>
-                    </div>
-                        
+                        <div className="pb-3 pt-2">
+                            <code className="p-2 rounded">
+                                { multiChoiceQuestion!.metaData }
+                            </code>
+                        </div> 
                     }
                      
                     { 
                         multiChoiceQuestion!.answers.map( 
                             answer => <div>
-                                <input className="form-check-input" type="radio" id={ answer.letter } name="answer" value={ answer.letter }></input>
+                                <input className="form-check-input" type="radio" id={ answer.letter + id } name="answer" value={ answer.letter }></input>
                                 <label className="ps-3"> { answer.text }</label> <br />
                             </div>
                         ) 
                     }
-                </form>
-                <Space></Space>
-                { index - 1 !== 0 && 
-                   <Link to={{ 
-                    pathname: `/question/${index - 1}`,     
-                 }} 
-                 className="btn btn-info me-4">Previous</Link> 
-                }
-
-                { index - 1 === 0 && 
-                   <Link to={{ 
-                    pathname: `/`,     
-                 }} 
-                 className="btn btn-danger me-4">Cancel Quiz</Link> 
-                }
-
-                { index   < questions.length &&
+                    <Space></Space>
+                    { index - 1 !== 0 && 
                     <Link to={{ 
-                    pathname: `/question/${index + 1}`,
-                 }}  className="btn btn-info">Answer</Link>
-                }
+                        pathname: `/question/${index - 1}`,     
+                    }} 
+                    className="btn btn-info me-4">Previous</Link> 
+                    }
 
-                { index + 1 > questions.length && 
-                   <Link to={{ 
-                    pathname: `/`,     
-                 }} 
-                 className="btn btn-success">Finish Quiz</Link> 
-                }
+                    { index - 1 === 0 && 
+                    <Link to={{ 
+                        pathname: `/`,     
+                    }} 
+                    className="btn btn-danger me-4">Cancel Quiz</Link> 
+                    }
+
+                    { index   < questions.length &&
+                        <Link to={{ pathname: `/question/${index + 1}` }} >
+                            <input type="submit" value="Answer" className="btn btn-info"/>
+                        </Link>
+                    }
+
+                    { index + 1 > questions.length && 
+                    <Link to={{ pathname: `/` }} className="btn btn-success">Finish Quiz</Link> 
+                    }
+                </form>
+                
             </div>
         </div>
     );
