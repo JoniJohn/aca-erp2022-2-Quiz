@@ -1,11 +1,13 @@
 import React from "react";
 
 import Space from "../custom_components/Space";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 import questions from "../data/Questions";
 
 function QuestionView() {
+    let navigate = useNavigate();
+
     const { id } = useParams();
     var index = parseInt(id!);
 
@@ -20,7 +22,7 @@ function QuestionView() {
             <h2>Please select the correct answer</h2>
             
             <div className="border border-info rounded-3 p-3">
-                <form action="/" >
+                <form id="quizForm" action="" >
                     <h4 className="text-info">{ id }. { multiChoiceQuestion!.question }</h4>
                     {multiChoiceQuestion!.metaData.length !== 0 &&
                         <div className="pb-3 pt-2">
@@ -28,16 +30,17 @@ function QuestionView() {
                                 { multiChoiceQuestion!.metaData }
                             </code>
                         </div> 
-                    }
-                     
+                    } 
+                    <div className="tab">
                     { 
                         multiChoiceQuestion!.answers.map( 
                             answer => <div>
-                                <input className="form-check-input" type="radio" id={ answer.letter + id } name="answer" value={ answer.letter }></input>
-                                <label className="ps-3"> { answer.text }</label> <br />
+                                <input className="form-check-input" type="radio" id={ answer.letter + id } name="answer" value={ answer.letter  } />
+                                <label className="ps-3"> { answer.text } </label> <br />
                             </div>
                         ) 
                     }
+                    </div>             
                     <Space></Space>
                     { index - 1 !== 0 && 
                     <Link to={{ 
@@ -54,9 +57,10 @@ function QuestionView() {
                     }
 
                     { index   < questions.length &&
-                        <Link to={{ pathname: `/question/${index + 1}` }} >
-                            <input type="submit" value="Answer" className="btn btn-info"/>
-                        </Link>
+                        <input type="submit" value="Answer" className="btn btn-info" onClick={() => {
+                            alert("Are you sure");
+                            navigate(`/question/${index + 1}`)
+                        }}/>
                     }
 
                     { index + 1 > questions.length && 

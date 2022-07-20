@@ -29,7 +29,7 @@ const questions: MultiChoiceQuestion[] =  [
     ),
     new MultiChoiceQuestion(
         3,
-        "Choose the corresponding value x that outputs true.",
+        "Choose the corresponding value of x that outputs true.",
         "console.log(x > -5 && x < -3 && x != 0)",
         new Answer("A", "-4"),
         [
