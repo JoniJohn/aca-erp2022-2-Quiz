@@ -58,7 +58,6 @@ function QuestionView() {
 
                     { index   < questions.length &&
                         <input type="submit" value="Answer" className="btn btn-info" onClick={() => {
-                            alert("Are you sure");
                             navigate(`/question/${index + 1}`)
                         }}/>
                     }
