@@ -63,7 +63,7 @@ function QuestionView() {
                     }
 
                     { index + 1 > questions.length && 
-                    <Link to={{ pathname: `/` }} className="btn btn-success">Finish Quiz</Link> 
+                    <Link to={{ pathname: `/summary` }} className="btn btn-success">Finish Quiz</Link> 
                     }
                 </form>
                 
